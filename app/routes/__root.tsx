@@ -1,6 +1,4 @@
-import { Link, Outlet, ScrollRestoration, createRootRouteWithContext } from '@tanstack/react-router';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { TanStackRouterDevtools } from '@tanstack/router-devtools';
+import { Outlet, ScrollRestoration, createRootRouteWithContext } from '@tanstack/react-router';
 import { Meta, Scripts } from '@tanstack/start';
 import * as React from 'react';
 import type { QueryClient } from '@tanstack/react-query';
@@ -55,19 +53,16 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Meta />
       </head>
       <body>
-        <div className="p-2 flex gap-2 text-lg"></div>
         <ThemeProvider attribute="class" defaultTheme="dark">
           {children}
           <Toaster />
         </ThemeProvider>
 
-        <TanStackRouterDevtools position="bottom-right" />
-        <ReactQueryDevtools buttonPosition="bottom-left" />
         <Scripts />
       </body>
     </html>

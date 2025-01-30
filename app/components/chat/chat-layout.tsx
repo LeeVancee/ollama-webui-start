@@ -1,17 +1,11 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from "@/components/ui/resizable";
-import { cn } from "@/lib/utils";
-import { Sidebar } from "../sidebar";
-import { Message, useChat } from "ai/react";
-import Chat, { ChatProps } from "./chat";
-import ChatList from "./chat-list";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
+import React, { useEffect, useState } from 'react';
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
+import { cn } from '@/lib/utils';
+import { Sidebar } from '../sidebar';
+import { Message, useChat } from 'ai/react';
+import Chat, { ChatProps } from './chat';
+import ChatList from './chat-list';
+import { HamburgerMenuIcon } from '@radix-ui/react-icons';
 
 interface ChatLayoutProps {
   defaultLayout: number[] | undefined;
@@ -40,11 +34,11 @@ export function ChatLayout({
     checkScreenWidth();
 
     // Event listener for screen width changes
-    window.addEventListener("resize", checkScreenWidth);
+    window.addEventListener('resize', checkScreenWidth);
 
     // Cleanup the event listener on component unmount
     return () => {
-      window.removeEventListener("resize", checkScreenWidth);
+      window.removeEventListener('resize', checkScreenWidth);
     };
   }, []);
 
@@ -52,9 +46,7 @@ export function ChatLayout({
     <ResizablePanelGroup
       direction="horizontal"
       onLayout={(sizes: number[]) => {
-        document.cookie = `react-resizable-panels:layout=${JSON.stringify(
-          sizes
-        )}`;
+        document.cookie = `react-resizable-panels:layout=${JSON.stringify(sizes)}`;
       }}
       className="h-screen items-stretch"
     >
@@ -66,34 +58,20 @@ export function ChatLayout({
         maxSize={isMobile ? 0 : 16}
         onCollapse={() => {
           setIsCollapsed(true);
-          document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
-            true
-          )}`;
+          document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(true)}`;
         }}
         onExpand={() => {
           setIsCollapsed(false);
-          document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(
-            false
-          )}`;
+          document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(false)}`;
         }}
         className={cn(
-          isCollapsed
-            ? "min-w-[50px] md:min-w-[70px] transition-all duration-300 ease-in-out"
-            : "hidden md:block"
+          isCollapsed ? 'min-w-[50px] md:min-w-[70px] transition-all duration-300 ease-in-out' : 'hidden md:block'
         )}
       >
-        <Sidebar
-          isCollapsed={isCollapsed || isMobile}
-          messages={initialMessages}
-          isMobile={isMobile}
-          chatId={id}
-        />
+        <Sidebar isCollapsed={isCollapsed || isMobile} messages={initialMessages} isMobile={isMobile} chatId={id} />
       </ResizablePanel>
-      <ResizableHandle className={cn("hidden md:flex")} withHandle />
-      <ResizablePanel
-        className="h-full w-full flex justify-center"
-        defaultSize={defaultLayout[1]}
-      >
+      <ResizableHandle className={cn('hidden md:flex')} withHandle />
+      <ResizablePanel className="h-full w-full flex justify-center" defaultSize={defaultLayout[1]}>
         <Chat id={id} initialMessages={initialMessages} isMobile={isMobile} />
       </ResizablePanel>
     </ResizablePanelGroup>

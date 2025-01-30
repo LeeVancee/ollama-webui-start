@@ -9,9 +9,10 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { toast } from 'sonner';
 import { Loader2Icon } from 'lucide-react';
 import { Input } from './ui/input';
-import { throttle } from 'lodash';
+
 import useChatStore from '@/hooks/useChatStore';
 import { useNavigate } from '@tanstack/react-router';
+import pkg from 'lodash';
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -22,7 +23,7 @@ const formSchema = z.object({
 export default function PullModelForm() {
   const { isDownloading, downloadProgress, downloadingModel, startDownload, stopDownload, setDownloadProgress } =
     useChatStore();
-
+  const { throttle } = pkg;
   const navigate = useNavigate();
 
   const form = useForm<z.infer<typeof formSchema>>({
