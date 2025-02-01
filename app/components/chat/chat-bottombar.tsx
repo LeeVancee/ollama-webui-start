@@ -81,7 +81,7 @@ export default function ChatBottombar({
             {isLoading ? (
               // Loading state
               <div className="flex w-full justify-between">
-                {/*   <MultiImagePicker disabled onImagesPick={setBase64Images} /> */}
+                <MultiImagePicker disabled onImagesPick={setBase64Images} />
                 <div>
                   <Button className="shrink-0 rounded-full" variant="ghost" size="icon" type="button" disabled>
                     <Mic className="w-5 h-5" />
@@ -103,7 +103,7 @@ export default function ChatBottombar({
             ) : (
               // Default state
               <div className="flex w-full justify-between">
-                {/*  <MultiImagePicker disabled={isLoading} onImagesPick={setBase64Images} /> */}
+                <MultiImagePicker disabled={isLoading} onImagesPick={setBase64Images} />
                 <div>
                   {/* Microphone button with animation when listening */}
                   <Button

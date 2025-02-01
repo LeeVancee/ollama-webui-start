@@ -80,6 +80,9 @@ importers:
       ai:
         specifier: ^4.1.7
         version: 4.1.11(react@19.0.0)(zod@3.24.1)
+      babel-plugin-react-compiler:
+        specifier: 19.0.0-beta-27714ef-20250124
+        version: 19.0.0-beta-27714ef-20250124
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -2377,6 +2380,9 @@ packages:
 
   babel-dead-code-elimination@1.0.8:
     resolution: {integrity: sha512-og6HQERk0Cmm+nTT4Od2wbPtgABXFMPaHACjbKLulZIFMkYyXZLkUGuAxdgpMJBrxyt/XFpSz++lNzjbcMnPkQ==}
+
+  babel-plugin-react-compiler@19.0.0-beta-27714ef-20250124:
+    resolution: {integrity: sha512-1AnF/dlvbIJzAjw5jEbDx7csHx772VP9AtrEg2CgUUD6MIu24j5ShxmBZ0tpfdb2pZtLVwcsoGylfZTzUoCr9w==}
 
   bail@2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==}
@@ -7195,6 +7201,10 @@ snapshots:
       '@babel/types': 7.26.7
     transitivePeerDependencies:
       - supports-color
+
+  babel-plugin-react-compiler@19.0.0-beta-27714ef-20250124:
+    dependencies:
+      '@babel/types': 7.26.7
 
   bail@2.0.2: {}
 
